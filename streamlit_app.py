@@ -83,10 +83,13 @@ import matplotlib.pyplot as plt
 x=np.linspace(0,2*np.pi,32)
 fig = plt.figure()
 plt.plot(x, np.sin(x),x,np.cos(x))
-plt.show()
-plt.plot(x,np.exp(x))
-plt.show()
 
-x=np.linspace(-0.5*np.pi,0.5*np.pi,100)
-plt.plot(x,np.tan(x))
-plt.show()
+#plt.plot(x,np.exp(x))
+
+#x=np.linspace(-0.5*np.pi,0.5*np.pi,100)
+#plt.plot(x,np.tan(x))
+
+
+
+
+st.pyplot(fig)
