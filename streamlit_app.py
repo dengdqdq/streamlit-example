@@ -64,3 +64,29 @@ st.latex(r'''\large
      ''')
 
 st.balloons()
+
+st.markdown('# 微积分')
+st.markdown('微积分由三个部分组成，即微分、积分以及联系微分﹑积分的微积分基本定理。')
+st.markdown('## 一维微积分')
+txt=r'''
+若y=f(x)为定义在区间(a，b)上的一个函数﹐$\frac{x+y}{y+z}$，如果$\lim_{h\to\infty}$,$\frac{f(x+h)-f(h)}{h}$
+在(a,b)中的一点x存在,则称f(x)在这点可微，记这极限值为或df/dx 或f'(x)，称df=f(x)dx为f(x)在x点的微分。
+如果在(a ,b)上每一点都可微，则称函数在(a,b)上可微。
+'''
+st.markdown(txt)
+
+
+
+import numpy as np
+import matplotlib.pyplot as plt
+
+x=np.linspace(0,2*np.pi,32)
+fig = plt.figure()
+plt.plot(x, np.sin(x),x,np.cos(x))
+plt.show()
+plt.plot(x,np.exp(x))
+plt.show()
+
+x=np.linspace(-0.5*np.pi,0.5*np.pi,100)
+plt.plot(x,np.tan(x))
+plt.show()
