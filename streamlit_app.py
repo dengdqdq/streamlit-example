@@ -83,10 +83,38 @@ import matplotlib.pyplot as plt
 x=np.linspace(0,2*np.pi,32)
 fig = plt.figure()
 plt.plot(x, np.sin(x),x,np.cos(x))
-plt.show()
-plt.plot(x,np.exp(x))
-plt.show()
+st.pyplot(fig)
 
-x=np.linspace(-0.5*np.pi,0.5*np.pi,100)
-plt.plot(x,np.tan(x))
-plt.show()
+# plt.show()
+# plt.plot(x,np.exp(x))
+# plt.show()
+
+# x=np.linspace(-0.5*np.pi,0.5*np.pi,100)
+# plt.plot(x,np.tan(x))
+# plt.show()
+
+
+
+st.line_chart({"data": [1, 5, 2, 6, 2, 1]})
+
+with st.expander("展开"):
+     st.latex(r'''\huge 
+          a + ar + a r^2 + a r^3 + \cdots + a r^{n-1} =
+          \sum_{k=0}^{n-1} ar^k =
+          a \left(\frac{1-r^{n}}{1-r}\right)
+          ''')
+
+
+     st.latex(r'''\Large 
+          a + ar + a r^2 + a r^3 + \cdots + a r^{n-1} =
+          \sum_{k=0}^{n-1} ar^k =
+          a \left(\frac{1-r^{n}}{1-r}\right)
+          ''')
+
+     st.latex(r'''\large 
+          a + ar + a r^2 + a r^3 + \cdots + a r^{n-1} =
+          \sum_{k=0}^{n-1} ar^k =
+          a \left(\frac{1-r^{n}}{1-r}\right)
+          ''')
+
+     st.image("https://static.streamlit.io/examples/dice.jpg")
