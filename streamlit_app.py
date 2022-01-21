@@ -77,21 +77,6 @@ st.markdown(txt)
 
 
 
-import numpy as np
-import matplotlib.pyplot as plt
-
-x=np.linspace(0,2*np.pi,32)
-fig = plt.figure()
-plt.plot(x, np.sin(x),x,np.cos(x))
-st.pyplot(fig)
-
-# plt.show()
-# plt.plot(x,np.exp(x))
-# plt.show()
-
-# x=np.linspace(-0.5*np.pi,0.5*np.pi,100)
-# plt.plot(x,np.tan(x))
-# plt.show()
 
 
 
@@ -118,4 +103,21 @@ with st.expander("展开"):
           ''')
 
      st.image("https://static.streamlit.io/examples/dice.jpg")
+   
+import numpy as np
+import matplotlib.pyplot as plt
+
+x=np.linspace(0,2*np.pi,32)
+fig = plt.figure()
+plt.plot(x, np.sin(x),x,np.cos(x))
+st.pyplot(fig)
+
+# plt.show()
+# plt.plot(x,np.exp(x))
+# plt.show()
+
+# x=np.linspace(-0.5*np.pi,0.5*np.pi,100)
+# plt.plot(x,np.tan(x))
+# plt.show()
+
 
