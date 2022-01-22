@@ -182,4 +182,28 @@ plt.plot(x_right,y_right,'b.',markersize=10)
 plt.bar(x_right,y_right,width=-(b-a)/N,alpha=0.2,align='edge',edgecolor='b')
 plt.title('Right Riemann Sum, N = {}'.format(N))
 
+
+
+
+st.markdown('黎曼和，左')
+plt.plot(X,Y,'b')
+x_left = x[:-1] # Left endpoints
+y_left = y[:-1]
+plt.plot(x_left,y_left,'b.',markersize=10)
+plt.bar(x_left,y_left,width=(b-a)/N,alpha=0.2,align='edge',edgecolor='b')
+
+st.markdown('黎曼和，中')
+plt.plot(X,Y,'b')
+x_mid = (x[:-1] + x[1:])/2 # Midpoints
+y_mid = f(x_mid)
+plt.plot(x_mid,y_mid,'b.',markersize=10)
+plt.bar(x_mid,y_mid,width=(b-a)/N,alpha=0.2,edgecolor='b')
+
+st.markdown('黎曼和，右')
+plt.plot(X,Y,'b')
+x_right = x[1:] # Left endpoints
+y_right = y[1:]
+plt.plot(x_right,y_right,'b.',markersize=10)
+plt.bar(x_right,y_right,width=-(b-a)/N,alpha=0.2,align='edge',edgecolor='b')
+
 st.pyplot(fig)
