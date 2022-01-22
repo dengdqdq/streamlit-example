@@ -112,7 +112,6 @@ fig = plt.figure()
 plt.plot(x, np.sin(x),x,np.cos(x))
 st.pyplot(fig)
 
-
 # plt.show()
 # plt.plot(x,np.exp(x))
 # plt.show()
@@ -120,8 +119,6 @@ st.pyplot(fig)
 # x=np.linspace(-0.5*np.pi,0.5*np.pi,100)
 # plt.plot(x,np.tan(x))
 # plt.show()
-
-
 
 st.line_chart({"data": [1, 5, 2, 6, 2, 1]})
 
