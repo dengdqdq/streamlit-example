@@ -11,6 +11,29 @@ import streamlit as st
 [streamlit例子](https://share.streamlit.io/dengdqdq/streamlit-example)
 
 """
+
+st.markdown("""<style>.big-font {font-size:60px !important;}</style>""", unsafe_allow_html=True)
+st.markdown('<p class="big-font">Hello World !!</p>', unsafe_allow_html=True)
+
+variable_output = st.text_input("输入文字", value="机器人人工智能")
+font_size = st.slider("输入字体大小", 1, 300, value=30)
+
+html_str = f"""
+<style>
+p.a {{
+  font: bold {font_size}px Courier;
+}}
+</style>
+<p class="a">{variable_output}</p>
+"""
+
+st.markdown(html_str, unsafe_allow_html=True)
+
+
+
+
+
+
 with st.echo(code_location='below'):
     total_points = st.slider("Number of points in spiral", 1, 5000, 2000)
     num_turns = st.slider("Number of turns in spiral", 1, 100, 9)
@@ -61,8 +84,8 @@ st.latex(r'''\large
 
 st.balloons()
 
-
 """
+
 - OpenCV绘图介绍
 - 在OpenCV中绘制基本形状，线、矩形和圆
 - 基本形状(2)-剪贴线和带箭头的线、椭圆和折线
@@ -78,8 +101,8 @@ cv2.line(image, (0, 200), (400, 200), colors['yellow'], 10)
 ```
 微分方程的解可能不是幂级数$\sum_{n=0}^\infty a_nx^n$,而是以下的情况
 
-
 （a） 例如，包含x的负幂
+
 $$
 y=\\frac{cosx}{x^2}=\\frac{1}{x^2}-\\frac{1}{2!}+\\frac{x^2}{4!}-...
 $$
@@ -93,6 +116,7 @@ $$
 y= x^s\sum_{n=0}^\infty a_n x^n =\sum_{n=0}^\infty a_n x^{n+s} \\tag {11.1}
 \\end{aligned}
 $$
+
 
 
 其中s为适合问题的量，可以是正数，负数，也可以是分数，甚至可以是复数，不过现在不考虑复数情况。$a_0x^s$是级数第一项，设$a_0$不为零。级数(11.1)称为广义幂级数。我们将考虑一些微分方程，这些方程可以假定（11.1）形式的级数解求解。这种微分方程解法称弗罗比尼乌斯法。
@@ -139,9 +163,10 @@ $$s = −2,	s = −1.$$
 求s =- 2和s = -1时的两个独立解，这两个独立解的线性组合即为方程的通解。就像Asinx +Bcosx是y’’ + y = 0的通解一样。
 
 
-
-
 """
+
+
+
 st.markdown('# 微积分')
 st.markdown('微积分由三个部分组成，即微分、积分以及联系微分﹑积分的微积分基本定理。')
 st.markdown('## 一维微积分')
