@@ -6,11 +6,16 @@ import streamlit as st
 
 # Welcome to Streamlit !
 
+
+
 """
 # 广州城市理工学院
 [streamlit例子](https://share.streamlit.io/dengdqdq/streamlit-example)
 
+\r'<font color=#0099ff size=12 face="黑体">黑体</font>',unsafe_allow_html=True
+
 """
+st.markdown('<font color=#0099ff size=12 face="黑体">黑体</font>',unsafe_allow_html=True) 
 
 st.markdown("""<style>.big-font {font-size:60px !important;}</style>""", unsafe_allow_html=True)
 st.markdown('<p class="big-font">Hello World !!</p>', unsafe_allow_html=True)
@@ -121,6 +126,13 @@ $$
 
 其中s为适合问题的量，可以是正数，负数，也可以是分数，甚至可以是复数，不过现在不考虑复数情况。$a_0x^s$是级数第一项，设$a_0$不为零。级数(11.1)称为广义幂级数。我们将考虑一些微分方程，这些方程可以假定（11.1）形式的级数解求解。这种微分方程解法称弗罗比尼乌斯法。
 
+$$
+\large
+\documentclass[12pt, a4paper]
+\\textit{其中s为适合问题的量，可以是正数}
+其中s为适合问题的量，可以是正数，负数，也可以是分数，甚至可以是复数，不过现在不考虑复数情况。a_0x^s是级数第一项，设a_0不为零。级数(11.1)称为广义幂级数。我们将考虑一些微分方程，这些方程可以假定（11.1）形式的级数解求解。这种微分方程解法称弗罗比尼乌斯法。
+$$
+
 
 
 例1. 为了说明这种方法，解方程
@@ -212,28 +224,6 @@ st.pyplot(fig)
 
 st.line_chart({"data": [1, 5, 2, 6, 2, 1]})
 
-with st.expander("展开"):
-     st.latex(r'''\huge 
-          a + ar + a r^2 + a r^3 + \cdots + a r^{n-1} =
-          \sum_{k=0}^{n-1} ar^k =
-          a \left(\frac{1-r^{n}}{1-r}\right)
-          ''')
-
-
-     st.latex(r'''\Large 
-          a + ar + a r^2 + a r^3 + \cdots + a r^{n-1} =
-          \sum_{k=0}^{n-1} ar^k =
-          a \left(\frac{1-r^{n}}{1-r}\right)
-          ''')
-
-     st.latex(r'''\large 
-          a + ar + a r^2 + a r^3 + \cdots + a r^{n-1} =
-          \sum_{k=0}^{n-1} ar^k =
-          a \left(\frac{1-r^{n}}{1-r}\right)
-          ''')
-
-     st.image("https://static.streamlit.io/examples/dice.jpg")
-
 
 
 f = lambda x : 1/(1+x**2)
@@ -273,3 +263,57 @@ y_right = y[1:]
 plt.plot(x_right,y_right,'b.',markersize=10)
 plt.bar(x_right,y_right,width=-(b-a)/N,alpha=0.2,align='edge',edgecolor='b')
 st.pyplot(fig)
+
+
+
+st.write("""
+              Given:
+                - A document is a sequence of $N$ words denoted by $\\textbf{w} = (w_1,w_2,... ,w_N)$, where $w_n$ is the nth word b in the sequence.
+                - A corpus is a collection of $M$ documents denoted by $D = \\textbf{w}_1, \\textbf{w}_2,...\\textbf{w}_m$
+                - $\\alpha$ is the Dirichlet prior on the per-document topic distributions
+                - $\\beta$ is the Dirichlet prior on the per-topic  word distributions
+                - $\\theta$ is the topic distribution for document $m$
+                - $z_{mn}$ is the topic for $n^{\\text{th}}$  word in document $m$
+              """)
+
+
+st.write(r"""
+Given:
+- A document is a sequence of $N$ words denoted by $\textbf{w} = (w_1,w_2,... ,w_N)$, where $w_n$ is the nth word b in the sequence.
+- A corpus is a collection of $M$ documents denoted by $D = \textbf{w}_1, \textbf{w}_2,...\textbf{w}_m$
+- $\alpha$ is the Dirichlet prior on the per-document topic distributions
+- $\beta$ is the Dirichlet prior on the per-topic  word distributions
+- $\Theta$ is the topic distribution for document $m$
+- $z_{mn}$ is the topic for $n^{\text{th}}$  word in document $m$
+""")
+
+
+from io import BytesIO
+
+def render_latex(formula, fontsize=12, dpi=300):
+    """Renders LaTeX formula into Streamlit."""
+    fig = plt.figure()
+    text = fig.text(0, 0, '$%s$' % formula, fontsize=fontsize)
+
+    fig.savefig(BytesIO(), dpi=dpi)  # triggers rendering
+
+    bbox = text.get_window_extent()
+    width, height = bbox.size / float(dpi) + 0.05
+    fig.set_size_inches((width, height))
+
+    dy = (bbox.ymin / float(dpi)) / height
+    text.set_position((0, -dy))
+
+    buffer = BytesIO()
+    fig.savefig(buffer, dpi=dpi, format='jpg')
+    plt.close(fig)
+
+    st.image(buffer)
+
+
+if __name__ == '__main__':
+    # Demonstrate the use of render_latex().
+    formula = st.text_input('Formula', r'\alpha^2 >  2\beta')
+    render_latex(formula)
+
+
